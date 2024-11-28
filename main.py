@@ -5,7 +5,7 @@ import smtplib
 import re
 from email.mime.text import MIMEText
 
-
+# sending email
 def send_email(mail_username,mail_app_pass, url, product, new_price):
     
     # Email content
@@ -34,7 +34,7 @@ def send_email(mail_username,mail_app_pass, url, product, new_price):
     except Exception as e:
         print(f"An error occurred: {e}")
 
-
+# getting price with currency from aws
 def extract_price_with_currency(response):
     soup = bs(response.text, "html.parser")
     price_with_currency = soup.find("span", class_="priceToPay").text.strip()
